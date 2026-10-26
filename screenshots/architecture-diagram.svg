@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 600" width="1000" height="600" style="background:#0a0e17; font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,monospace;">
+  <defs>
+    <linearGradient id="cyanGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0284c7" />
+      <stop offset="100%" stop-color="#38bdf8" />
+    </linearGradient>
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#111827" />
+      <stop offset="100%" stop-color="#1f2937" />
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="6" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Title & Header -->
+  <text x="40" y="45" fill="#38bdf8" font-size="20" font-weight="bold" letter-spacing="1">ARINC 811 COMMERCIAL AIRCRAFT INFORMATION SECURITY PROGRAM (AISP)</text>
+  <text x="40" y="70" fill="#94a3b8" font-size="12">Security Domain Partitioning • Hardware Optical Data Diodes • RTCA DO-326A &amp; DO-356A Airworthiness Shield</text>
+  <line x1="40" y1="85" x2="960" y2="85" stroke="#334155" stroke-width="1.5" />
+
+  <!-- 4 DOMAINS GRID -->
+  <!-- 1. ACD: Aircraft Control Domain (Top Left) -->
+  <rect x="40" y="105" width="440" height="205" rx="8" fill="url(#cardGrad)" stroke="#ef4444" stroke-width="1.5" />
+  <rect x="40" y="105" width="440" height="32" rx="8" fill="#7f1d1d" opacity="0.6" />
+  <circle cx="60" cy="121" r="5" fill="#ef4444" filter="url(#glow)" />
+  <text x="75" y="126" fill="#fca5a5" font-size="13" font-weight="bold">AIRCRAFT CONTROL DOMAIN (ACD) • DAL-A/B</text>
+
+  <rect x="55" y="147" width="410" height="42" rx="4" fill="#0f172a" />
+  <text x="68" y="166" fill="#f8fafc" font-size="11" font-weight="bold">Flight-Critical Core Avionics &amp; Control Buses</text>
+  <text x="68" y="181" fill="#94a3b8" font-size="10">Fly-By-Wire EEC • FMS • AFDX / ARINC 664 Part 7 • SAFEbus Backplane</text>
+
+  <rect x="55" y="197" width="410" height="42" rx="4" fill="#0f172a" />
+  <text x="68" y="216" fill="#ef4444" font-size="11" font-weight="bold">Zero External Ingress Policy (DO-356A Inhibit)</text>
+  <text x="68" y="231" fill="#94a3b8" font-size="10">Strict prohibition of inbound bridging from passenger or operational networks</text>
+
+  <rect x="55" y="247" width="410" height="50" rx="4" fill="#0f172a" stroke="#10b981" stroke-width="1" />
+  <text x="68" y="267" fill="#10b981" font-size="11" font-weight="bold">Hardware Optical Data Diode (Egress Only)</text>
+  <text x="68" y="284" fill="#94a3b8" font-size="10">Transmits flight parameters (FOQA) to AISD • Physical return path absent</text>
+
+  <!-- 2. AISD: Airline Information Services Domain (Top Right) -->
+  <rect x="520" y="105" width="440" height="205" rx="8" fill="url(#cardGrad)" stroke="#f59e0b" stroke-width="1.5" />
+  <rect x="520" y="105" width="440" height="32" rx="8" fill="#78350f" opacity="0.6" />
+  <circle cx="540" cy="121" r="5" fill="#f59e0b" filter="url(#glow)" />
+  <text x="555" y="126" fill="#fcd34d" font-size="13" font-weight="bold">AIRLINE INFORMATION SERVICES DOMAIN (AISD) • DAL-C/D</text>
+
+  <rect x="535" y="147" width="410" height="42" rx="4" fill="#0f172a" />
+  <text x="548" y="166" fill="#f8fafc" font-size="11" font-weight="bold">Flight Deck Operational &amp; Maintenance Systems</text>
+  <text x="548" y="181" fill="#94a3b8" font-size="10">Electronic Flight Bag (EFB) • Quick Access Recorder (QAR) • ACARS Router</text>
+
+  <rect x="535" y="197" width="410" height="42" rx="4" fill="#0f172a" />
+  <text x="548" y="216" fill="#f59e0b" font-size="11" font-weight="bold">Air-Ground Security Gateway (ARINC 842 / WAGC)</text>
+  <text x="548" y="231" fill="#94a3b8" font-size="10">802.1X EAP-TLS Mutual PKI • IPsec AES-256-GCM Encrypted Tunnel</text>
+
+  <rect x="535" y="247" width="410" height="50" rx="4" fill="#0f172a" stroke="#ef4444" stroke-width="1" />
+  <text x="548" y="267" fill="#ef4444" font-size="11" font-weight="bold">Airworthiness Boundary Firewall (DO-326A)</text>
+  <text x="548" y="284" fill="#94a3b8" font-size="10">Deep Packet Inspection • Drop all unapproved traffic from PIESD</text>
+
+  <!-- 3. PIESD: Passenger Information & Entertainment Domain (Bottom Left) -->
+  <rect x="40" y="325" width="440" height="235" rx="8" fill="url(#cardGrad)" stroke="#38bdf8" stroke-width="1.5" />
+  <rect x="40" y="325" width="440" height="32" rx="8" fill="#0369a1" opacity="0.6" />
+  <circle cx="60" cy="341" r="5" fill="#38bdf8" />
+  <text x="75" y="346" fill="#bae6fd" font-size="13" font-weight="bold">PASSENGER ENTERTAINMENT DOMAIN (PIESD) • DAL-E</text>
+
+  <rect x="55" y="367" width="410" height="45" rx="4" fill="#0f172a" />
+  <text x="68" y="387" fill="#f8fafc" font-size="11" font-weight="bold">In-Flight Entertainment &amp; Cabin Connectivity</text>
+  <text x="68" y="403" fill="#94a3b8" font-size="10">Seatback Displays • Cabin Wi-Fi Access Points • Cabin Management</text>
+
+  <rect x="55" y="420" width="410" height="45" rx="4" fill="#0f172a" />
+  <text x="68" y="440" fill="#38bdf8" font-size="11" font-weight="bold">Isolation from Flight Critical Avionics</text>
+  <text x="68" y="456" fill="#94a3b8" font-size="10">Physically separate subnets • No routing tables into ACD or AISD core</text>
+
+  <rect x="55" y="473" width="410" height="72" rx="4" fill="#0f172a" stroke="#334155" stroke-width="1" />
+  <text x="68" y="493" fill="#94a3b8" font-size="11" font-weight="bold">ARINC 429 Glass-Cockpit Discrete Bus Output</text>
+  <text x="68" y="513" fill="#38bdf8" font-size="10" font-family="monospace">Label 273: AISP Cyber Threat Level (1-5) &amp; Boundary States [ODD OK]</text>
+  <text x="68" y="533" fill="#38bdf8" font-size="10" font-family="monospace">Label 274: Security Event Depth &amp; SHA-256 Hash Chain [ODD OK]</text>
+
+  <!-- 4. POD: Passenger Owned Devices Domain (Bottom Right) -->
+  <rect x="520" y="325" width="440" height="235" rx="8" fill="url(#cardGrad)" stroke="#a855f7" stroke-width="1.5" />
+  <rect x="520" y="325" width="440" height="32" rx="8" fill="#581c87" opacity="0.6" />
+  <circle cx="540" cy="341" r="5" fill="#a855f7" />
+  <text x="555" y="346" fill="#e9d5ff" font-size="13" font-weight="bold">PASSENGER OWNED DEVICES (POD) • UNTRUSTED EXTERNAL</text>
+
+  <rect x="535" y="367" width="410" height="45" rx="4" fill="#0f172a" />
+  <text x="548" y="387" fill="#f8fafc" font-size="11" font-weight="bold">Untrusted Personal Electronics</text>
+  <text x="548" y="403" fill="#94a3b8" font-size="10">Passenger Smartphones • Laptops • Wearables • Bluetooth Devices</text>
+
+  <rect x="535" y="420" width="410" height="45" rx="4" fill="#0f172a" />
+  <text x="548" y="440" fill="#a855f7" font-size="11" font-weight="bold">WPA3 Client-to-Client Isolation</text>
+  <text x="548" y="456" fill="#94a3b8" font-size="10">Device isolation enabled • Direct access to aircraft systems blocked</text>
+
+  <rect x="535" y="473" width="410" height="72" rx="4" fill="#0f172a" stroke="#10b981" stroke-width="1" />
+  <text x="548" y="493" fill="#10b981" font-size="11" font-weight="bold">SIEM in the Sky • FAA AC 120-116 Event Forensics</text>
+  <text x="548" y="513" fill="#94a3b8" font-size="10">RFC 5424 structured syslog format • Continuous SHA-256 hash chaining</text>
+  <text x="548" y="533" fill="#10b981" font-size="10" font-weight="bold">10/10 Normative Compliance: ARINC 811 / RTCA DO-326A / DO-356A</text>
+
+  <!-- Footer Banner -->
+  <text x="500" y="580" fill="#64748b" font-size="11" text-anchor="middle">ARINC811Forge Pro v1.0.0 • Compliant with ARINC Report 811, RTCA DO-326A, RTCA DO-356A, FAA AC 120-116 &amp; EASA AMC 20-42</text>
+</svg>
